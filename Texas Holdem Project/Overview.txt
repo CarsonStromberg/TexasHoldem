@@ -1,0 +1,13 @@
+Texas Holdem Game Breakdown
+
+GAME MECHANICS
+The Deck
+- Create a Deck of Cards (4 Suits - 13 cards each)
+
+Scoring System
+
+Dealing
+
+INTERFACE
+Key Points
+- User is able to view the cards dealt to him. (2 cards)
