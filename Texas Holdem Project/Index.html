@@ -1,13 +1,16 @@
 <html>
     <head>
         <link rel="stylesheet" href="Index.css">
-        <script type="text/javascript" src="script.js"></script>
     </head>
     <title>
         <head>Texas Holdem</head>
     </title>
 
     <body>
+        <div id='body_header'>
+            <h1>Texas Holdem</h1>
+        </div>
+
         <div id='card_table'>
             <div class='card_space'><img id='card_slot1' class='card_img'/></div>
             <div class='card_space'><img id='card_slot2' class='card_img'/></div>
@@ -16,6 +19,17 @@
             <div class='card_space'><img id='card_slot5' class='card_img'/></div>
         </div>
 
-        <script type="text/javascript" src="script2.js"></script>
+        <div id='button_bar'>
+            <button>Call</button>
+            <button>Raise</button>
+            <button>Fold</button>
+        </div>
+
+        <div id='player_hand'>
+            <div class='player_card_space'><img id='player_card1' class='card_img'/></div>
+            <div class='player_card_space'><img id='player_card2' class='card_img'/></div>
+        </div>
+
+        <script type="text/javascript" src="gameScript.js"></script>
     </body>
 </html>

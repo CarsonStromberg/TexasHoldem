@@ -47,30 +47,30 @@ discardPile = [];
 
 function dealCard() {
     if (gameDeck.length >= 2){
-        discardPile.push(gameDeck.shift())
-        return gameDeck[0]
+        discardPile.push(gameDeck.shift());
+        return gameDeck[0];
     };
 
     if (gameDeck.length < 2){
-        discardPile.push(gameDeck.shift())
+        discardPile.push(gameDeck.shift());
         while(discardPile.length != 0){
-            gameDeck.push(discardPile.shift())
+            gameDeck.push(discardPile.shift());
         }
-        dealCard()
+        dealCard();
     }
 }
 
-for(i=0; i<50000; i++){
-    dealCard()
+//--------------------------------------------------------------------------
+// Interface Testing
+for(i=1; i<6; i++){
+    currentDraw = dealCard();
+    cardImgSrc = 'Images/' + currentDraw.getValue() + '_of_' + currentDraw.getSuit() + '.png';
+    (document.getElementById('card_slot' + i)).setAttribute('src', cardImgSrc)
 }
 
-/*deck = shuffleDeck()
+for (i=1; i<3; i++) {
+    currentDraw = dealCard();
+    cardImgSrc = 'Images/' + currentDraw.getValue() + '_of_' + currentDraw.getSuit() + '.png';
+    (document.getElementById('player_card' + i)).setAttribute('src', cardImgSrc)
+}
 
-for(i=0; i<5; i++){
-    randomNum = Math.floor(Math.random() * deck.length);
-    card = deck[randomNum];
-    console.log('Images/' + card.getValue() + '_' + card.getSuit() + '.png');
-    //currentCardSlot = 'card_slot' + (i + 1);
-    //let temp = document.getElementById(currentCardSlot);
-    //temp.setAttribute('src', 'Images/' + card.getValue() + '_' + card.getSuit() + '.png');
-};*/
