@@ -1,0 +1,16 @@
+#card_table {
+    text-align: center;
+    height: 300px;
+}
+
+.card_space {
+    display: inline-block;
+    height: 100%;
+    width: 15%;
+    border: 2px solid;
+}
+
+.card_img {
+    display: inline-block;
+    height: 100%;
+}
