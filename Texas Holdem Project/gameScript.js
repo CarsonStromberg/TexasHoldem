@@ -41,6 +41,56 @@ function shuffleDeck(generatedDeck = cardFactory()) {
 }
 
 //--------------------------------------------------------------------------
+// Basic Hand Functionalities
+gameDeck = shuffleDeck();
+discardPile = [];
+
+function playerDeal() {
+    if (gameDeck.length == 0){
+        while(discardPile != 0){
+            gameDeck.push(discardPile.pop());
+            playerDeal();
+        }
+    }
+    else {
+        return gameDeck.pop();
+    };
+}
+
+function initialDeal() {
+    if (gameDeck.length < 4){
+        while(gameDeck != 0){
+            discardPile.push(gameDeck.pop());
+        };
+        shuffleDeck(discardPile);
+        while(discardPile != 0){
+            gameDeck.push(discardPile.pop());
+        };
+        initialDeal();
+    }
+    else {
+        discardPile.push(gameDeck.pop());
+        return [gameDeck.pop(), gameDeck.pop(), gameDeck.pop()];
+    };
+}
+
+function followUpDeal() {
+    if (gameDeck.length == 0){
+        while(discardPile != 0){
+            gameDeck.push(discardPile.pop());
+            followUpDeal();
+        }
+    }
+    else {
+        discardPile.push(gameDeck.pop())
+        return [gameDeck.pop()];
+    }
+}
+
+/*
+
+VERSION 1
+
 // Game Functionality
 gameDeck = shuffleDeck();
 discardPile = [];
@@ -72,5 +122,36 @@ for (i=1; i<3; i++) {
     currentDraw = dealCard();
     cardImgSrc = 'Images/' + currentDraw.getValue() + '_of_' + currentDraw.getSuit() + '.png';
     (document.getElementById('player_card' + i)).setAttribute('src', cardImgSrc)
+} */
+
+// Interface #2
+
+function tableDeal(currentDraw){
+    for(card = 0; currentDraw.length; card++){
+        cardImgSrc = 'Images/' + currentDraw[card].getValue() + '_of_' + currentDraw[card].getSuit() + '.png';
+        (document.getElementById('card_slot' + i)).setAttribute('src', cardImgSrc)
+    }
 }
 
+function playerDealInterface(dealtCard, i){
+    cardImgSrc = 'Images/' + dealtCard.getValue() + '_of_' + dealtCard.getSuit() + '.png';
+    (document.getElementById('player_card' + i)).setAttribute('src', cardImgSrc)
+}
+
+// Testing
+console.log(playerDeal())
+console.log(playerDeal())
+console.log(gameDeck.length)
+console.log(discardPile.length)
+
+console.log(initialDeal())
+console.log(gameDeck.length)
+console.log(discardPile.length)
+
+console.log(followUpDeal())
+console.log(gameDeck.length)
+console.log(discardPile.length)
+
+console.log(followUpDeal())
+console.log(gameDeck.length)
+console.log(discardPile.length)
